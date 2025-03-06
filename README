@@ -1,0 +1,50 @@
+# Bolnička Mrežna Infrastruktura
+
+## 📝 Projektni Opis
+Implementacija segmentirane mreže s VLAN-ovima, Wi-Fi mrežom i VoIP telefonijom u bolničkom okruženju.
+
+## 🛠️ Korištene Tehnologije
+- **Oprema**: Ubiquiti EFG, Ubiquiti UniFi Switch, Ubiquiti U6 Access Point, Grandstream VoIP gateway, Cisco POE Switch.
+- **Softver**: UniFi Controller, VLAN 802.1Q.
+- **Protokoli**: DHCP, Static IP, VoIP (SIP).
+
+## 📊 Mrežna Topologija
+![Network Topology](diagrams/network-topology.png)  
+*(Napravljeno u [draw.io](https://draw.io) – [izvorna datoteka](diagrams/network-topology.drawio))*
+
+## 🚀 Ključne Karakteristike
+1. **VLAN Segmentacija**:
+   - Default: `192.168.2.1/24`
+   - Korisnici: `192.168.5.1/24`
+   - Serveri: `192.168.10.1/24`
+   - Sigurnost: `192.168.15.1/24`
+   - Gosti: `192.168.20.1/24`
+2. **Wi-Fi Mreža**:
+   - SSID: `Bolnica-Korisnici` (VLAN 5), `Bolnica-Gosti` (VLAN 20).
+   - Access Point: Ubiquiti U6.
+3. **VoIP Telefonija**:
+   - Izolirani VLAN za Grandstream gateway.
+   - Statičke IP adrese za VoIP uređaje.
+4. **Patch Panel i Utičnice**:
+   - Organizirano po uredima s oznakama za lakše upravljanje.
+
+## 💡 Key Learnings
+- Kako koristiti VLAN tagging za izolaciju prometa.
+- Postavljanje i optimizacija Wi-Fi mreže u enterprise okruženju.
+- Integracija VoIP sustava s postojećom mrežnom infrastrukturom.
+
+## 🚀 Future Improvements
+- Implementacija RADIUS autentikacije za Wi-Fi korisnike.
+- Dodavanje monitoringa mreže (npr. Zabbix + Grafana).
+
+## 📂 Konfiguracijske Datoteke
+- [UniFi Switch Config](configs/unifi-switch-config.json)
+- [VLAN Setup](configs/vlan-setup.txt)
+
+## 📸 Screenshots
+![UniFi Controller Dashboard](screenshots/unifi-dashboard.png)
+![Patch Panel Organization](screenshots/patch-panel.jpg)
+
+## 🔗 Korisni Linkovi
+- [Ubiquiti UniFi Dokumentacija](https://help.ui.com/)
+- [Grandstream VoIP Gateway Vodič](https://www.grandstream.com/support)
