@@ -19,7 +19,7 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
  - Stuff: `192.168.x.x/24`
  - Servers: `192.168.x.x1/24`
  - Security: `192.168.x.x/24`
- - VoIP Gateway: `Third Party Gateway`
+ - VoIP Gateway: `Third Party Gateway` (Grandstream GXW4224)
  - Guest: `192.168.x.x/24`
 2. **Wi-Fi Network**:
  - SSID: ``Office-Users'' (VLAN 10), ``Office-Guests'' (VLAN 25).
@@ -34,6 +34,11 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
 - How to use VLAN tagging for traffic isolation.
 - Setup and optimization of the Wi-Fi network in an enterprise environment.
 - Integration of the VoIP system with the existing network infrastructure.
+
+ **Physical infrastructure is critical**
+ - 80% of problems are caused by bad cabling
+ **VLAN segregation reduces complexity**
+ - 42 devices isolated in 7 VLANs
 
 ## 🚀 Future Improvements
 - Implementation of RADIUS authentication for Wi-Fi users.
