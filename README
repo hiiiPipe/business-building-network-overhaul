@@ -9,8 +9,8 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
 - **Protocols**: DHCP, Static IP, VoIP (SIP).
 
 ## 📊 Network Topology
-![Network Topology](/diagrams/network-topology.png)
-*(Made in [draw.io](https://draw.io) – [source file](/diagrams/network-topology.drawio))*
+![Network Topology] (/diagrams/network-topology.png)
+*(Made in [draw.io](https://draw.io) – [source file] (/diagrams/network-topology.drawio))*
 
 ## 🚀 Key Features
 1. **VLAN Segmentation**:
