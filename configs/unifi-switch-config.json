@@ -1,0 +1,222 @@
+{
+  "switch": [
+  {
+    "model": "USW-42-G1",
+    "ip": "192.168.x.x",
+    "firmware": "x.x.x"
+  },
+  "vlans": [
+    {
+      "id": 1,
+      "name": "Default",
+      "subnet": "192.168.x.x/24"
+    },
+	{
+      "id": 2,
+      "name": "Grandstream VoIP",
+      "subnet": ""
+    },
+	{
+      "id": 5,
+      "name": "Administration",
+      "subnet": "192.168.x.x/24"
+    },
+	{
+      "id": 10,
+      "name": "Stuff",
+      "subnet": "192.168.x.x/24"
+    },
+    {
+      "id": 15,
+      "name": "Servers",
+      "subnet": "192.168.x.x/24"
+    },
+	{
+      "id": 20,
+      "name": "Security",
+      "subnet": "192.168.x.x/24"
+    },
+	{
+      "id": 25,
+      "name": "Guest",
+      "subnet": "192.168.x.x/24"
+    },
+  ],
+  "ports": [
+    {
+      "port": 1,
+      "vlan": 2,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "port-isolation": "yes",
+    },
+	{
+      "port": 2,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 3,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "port-isolation": "yes",
+    },
+	{
+      "port": 4,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 5,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 6,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 7,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 8,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 9,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 10,
+      "vlan": 15,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Custom:Administration",
+	  "advanced": "Auto",
+    },
+	  "port": 11,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	  "port": 12,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	  "port": 13,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	]
+  ]
+  "switch": [
+  {
+    "model": "USW-42-G2",
+    "ip": "192.168.x.x",
+    "firmware": "x.x.x"
+  },
+  "ports": 
+    {
+      "port": 1,
+      "vlan": 2,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Block All",
+	  "port-isolation": "yes",
+    },
+	{
+      "port": 2,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 3,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "port-isolation": "yes",
+    },
+	{
+      "port": 4,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 5,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 6,
+      "vlan": 10,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 7,
+      "vlan": 5,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Allow All",
+	  "advanced": "Auto",
+    },
+	{
+      "port": 8,
+      "vlan": 15,
+      "speed": "1Gbps",
+      "duplex": "Full",
+	  "tagged-vlan-management": "Custom:Administration",
+	  "advanced": "Auto",
+    },
+   ]
+}  
+
