@@ -1,4 +1,4 @@
-# Bolnička Mrežna Infrastruktura
+# Bussiness Building Network Haul
 
 ## 📝 Projektni Opis
 Implementacija segmentirane mreže s VLAN-ovima, Wi-Fi mrežom i VoIP telefonijom u bolničkom okruženju.
@@ -15,16 +15,17 @@ Implementacija segmentirane mreže s VLAN-ovima, Wi-Fi mrežom i VoIP telefonijo
 ## 🚀 Ključne Karakteristike
 1. **VLAN Segmentacija**:
    - Default: `192.168.2.1/24`
-   - Korisnici: `192.168.5.1/24`
-   - Serveri: `192.168.10.1/24`
-   - Sigurnost: `192.168.15.1/24`
-   - Gosti: `192.168.20.1/24`
+   - Administration: `192.168.x.x/24`
+   - Stuff: `192.168.x.x/24`
+   - Servers: `192.168.x.x1/24`
+   - Security: `192.168.x.x/24`
+   - Gosti: `192.168.x.x/24`
 2. **Wi-Fi Mreža**:
    - SSID: `Bolnica-Korisnici` (VLAN 5), `Bolnica-Gosti` (VLAN 20).
    - Access Point: Ubiquiti U6.
 3. **VoIP Telefonija**:
    - Izolirani VLAN za Grandstream gateway.
-   - Statičke IP adrese za VoIP uređaje.
+   - Statičke IP adrese za VoIP uređaje, printere, servere, PC.
 4. **Patch Panel i Utičnice**:
    - Organizirano po uredima s oznakama za lakše upravljanje.
 
