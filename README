@@ -19,6 +19,7 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
  - Stuff: `192.168.x.x/24`
  - Servers: `192.168.x.x1/24`
  - Security: `192.168.x.x/24`
+ - VoIP Gateway: `Third Party Gateway`
  - Guest: `192.168.x.x/24`
 2. **Wi-Fi Network**:
  - SSID: ``Office-Users'' (VLAN 10), ``Office-Guests'' (VLAN 25).
@@ -49,3 +50,75 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
 ## 🔗 Useful Links
 - [Ubiquiti UniFi Documentation](https://help.ui.com/)
 - [Grandstream VoIP Gateway Guide](https://www.grandstream.com/support)
+
+🚨 Problems I encountered during the project.
+
+⚠️ ## Problem 1: Mismatch of LAN Wiring Standard
+### What was the problem?
+The network sockets in the building were connected according to the **T568A** standard, while the patch panel used the **T568B** standard.
+
+### Why was that a problem?
+- **Incomplete Gigabit Ethernet**: Mismatched wiring caused the speed to drop from 1 Gbps to 100 Mbps.
+- **Physical mismatch**: Signal pairs were not mapped correctly, leading to performance loss.
+
+### How did I solve the problem?
+- **Reconfigured the sockets**: I changed the wiring standard from T568A to T568B on all sockets.
+- **Tested the speed**: I used `iperf` and UniFi Controller to check the speed after the intervention.
+
+⚠️ ## Problem 2: Too long UTP Cable and Damage
+### What was the problem?
+Two buildings connected by a **160 meter** UTP cable (over a main road) had:
+- **Extremely low speed** (below 10 Mbps).
+- **Damaged cables** from asphalting (broken pairs, corrosion).
+- **Incorrect cable use**: UTP cable converted to 4 RJ11 telephone connectors.
+
+### Why was this a problem?
+- **Ethernet limitation**: The maximum recommended length of a UTP cable is **100 meters**.
+- **EMI interference**: The cables under the road were exposed to electromagnetic interference.
+
+### How did I solve the problem?
+- **Replaced UTP with fiber**: Run **multimode fiber** (MMF) between the buildings.
+- **Used media converters**: Ubiquiti fiber converters to convert electrical to optical signals.
+
+
+⚠️ ## Problem 3: Poor VoIP Integration Between Buildings
+### What was the problem?
+The VoIP gateway in Building 2 was unable to communicate with the PBX in Building 1.
+
+### Why was that a problem?
+- **Lack of VLAN segregation**: VoIP traffic mixed with general network traffic.
+- **Non-existent routing rules**: Rules for VoIP protocols (eg SIP/RTP) were missing.
+
+### How did I solve the problem?
+- **Implemented VLAN for VoIP**: Isolated VoIP traffic on VLAN 2.
+- **Configured UniFi switch**: Disabled VLAN VoIP Gateway communication with other VLANs.
+
+
+⚠️ ## Problem 4: Subnet conflict with VoIP Modem
+### What was the problem?
+The VoIP modem used the same subnet (`192.168.x.x/24`) as some business computers, which caused:
+- **Duplicate IP addresses**.
+- **Unavailability of network resources**.
+
+### Why was that a problem?
+- **Lack of port isolation**: VoIP devices and computers shared the same broadcast domain.
+- **Default settings of UniFi**: "Inter-VLAN routing" enabled unauthorized communication.
+
+### How did I solve the problem?
+1. **Isolated the ports**: Used "Port Isolation" on UniFi switch for VoIP gateway.
+2. **Firewall rules**: Blocked communication between VoIP VLAN and business VLANs.
+
+
+⚠️ ## Problem 5: Static DNS Problems!
+###What was the problem?
+Computers with manually set DNS addresses (eg 8.8.8.8) did not have access to internal resources.
+
+### Why was that a problem?
+Unavailability of local services: DNS servers could not resolve internal domains.
+
+Internet Loss: Users thought the Internet "went down."
+
+### How did I solve the problem?
+Changing DNS addresses: Set up local DNS servers (eg 192.168.x.x) on all static devices.
+
+User Education: Showed instructions for DHCP configuration instead of manual settings.
