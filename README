@@ -14,13 +14,13 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
 
 ## 🚀 Key Features
 1. **VLAN Segmentation**:
- - Default: `192.168.x.x/24`
- - Administration: `192.168.x.x/24`
- - Stuff: `192.168.x.x/24`
- - Servers: `192.168.x.x1/24`
- - Security: `192.168.x.x/24`
+ - Default: `192.168.2.1/24`
+ - Administration: `192.168.5.1/24`
+ - Stuff: `192.168.10.1/24`
+ - Servers: `192.168.15.1/24`
+ - Security: `192.168.20.1/24`
  - VoIP Gateway: `Third Party Gateway` (Grandstream GXW4224)
- - Guest: `192.168.x.x/24`
+ - Guest: `192.168.25.1/24`
 2. **Wi-Fi Network**:
  - SSID: ``Office-Users'' (VLAN 10), ``Office-Guests'' (VLAN 25).
  - Access Point: Ubiquiti U6.
@@ -46,7 +46,7 @@ Implementation of a segmented network with VLANs, Wi-Fi network and VoIP telepho
 
 ## 📂 Configuration Files
 - [UniFi Switch Config](configs/unifi-switch-config.json)
-- [VLAN Setup] (configs/vlan-setup.txt)
+
 
 ## 📸 Screenshots
 ![UniFi Controller Dashboard](screenshots/unifi-dashboard.png)
@@ -101,7 +101,7 @@ The VoIP gateway in Building 2 was unable to communicate with the PBX in Buildin
 
 ⚠️ ## Problem 4: Subnet conflict with VoIP Modem
 ### What was the problem?
-The VoIP modem used the same subnet (`192.168.x.x/24`) as some business computers, which caused:
+The VoIP modem used the same subnet (`192.168.2.1/24`) as some business computers, which caused:
 - **Duplicate IP addresses**.
 - **Unavailability of network resources**.
 
@@ -124,6 +124,6 @@ Unavailability of local services: DNS servers could not resolve internal domains
 Internet Loss: Users thought the Internet "went down."
 
 ### How did I solve the problem?
-Changing DNS addresses: Set up local DNS servers (eg 192.168.x.x) on all static devices.
+Changing DNS addresses: Set up local DNS servers (eg 192.168.5.1) on all static devices.
 
 User Education: Showed instructions for DHCP configuration instead of manual settings.
